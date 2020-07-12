@@ -9,6 +9,6 @@
     <version>1.0-SNAPSHOT</version>
 
 <build>
-    <finalName>dockerJenkinsIntegration.jar</finalName>
+    <finalName>dockerJenkinsIntegration</finalName>
 </build>
 </project>
