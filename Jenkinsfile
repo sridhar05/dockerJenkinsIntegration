@@ -1,9 +1,18 @@
 pipeline {
     agent { dockerfile true }
     stages {
-        stage('Test') {
+        stage('compile stage') {
             steps {
-                sh 'ls -l sridharfile'
+                withMaven(maven : 'maven_3_5_0'){
+                sh 'mvn clean compile'
+                }
+            }
+        }
+        stage ('Testing Stage'){
+            steps{
+                withMaven(maven : 'maven_3_5_0'){
+                sh 'mvn test'
+                }
             }
         }
     }
