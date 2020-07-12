@@ -1,5 +1,5 @@
 pipeline {
-    agent docker { image: '172.16.10.5:5000/sb-ubuntu' }
+    agent { docker image: '172.16.10.5:5000/sb-ubuntu' }
     stages {
         stage('compile stage') {
             steps {
