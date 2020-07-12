@@ -3,11 +3,11 @@ pipeline {
     stages {
         stage('compile stage') {
             steps {
-                echo "Hello"
-                echo "PATH = ${PATH}"
-                echo "M2_HOME = ${M2_HOME}"
-                withMaven(maven : 'maven_3_6_3')
-                sh 'mvn clean compile'
+                withDockerContainer(172.16.10.5:5000/sb-ubuntu){
+                    echo "Hello"
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                }
             }
         }
         stage ('Testing Stage'){
@@ -15,8 +15,6 @@ pipeline {
                  echo "Hello"
                  echo "PATH = ${PATH}"
                  echo "M2_HOME = ${M2_HOME}"
-                 withMaven(maven : 'maven_3_6_3')
-                 sh 'mvn test'
             }
         }
     }
